@@ -12,7 +12,7 @@
  */
 package com.thjug.manager;
 
-import com.thjug.entity.User;
+import com.thjug.entity.Account;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
@@ -22,10 +22,10 @@ import javax.ejb.Stateless;
  */
 @Stateless
 @LocalBean
-public class UserManager extends AbstractManager<User>{
+public class AccountManager extends AbstractManager<Account>{
 
-	public UserManager() {
-		super(User.class);
+	public AccountManager() {
+		super(Account.class);
 	}
 
 }

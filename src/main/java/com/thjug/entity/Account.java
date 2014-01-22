@@ -27,18 +27,16 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
-	@NamedQuery(name = "User.findByUserid", query = "SELECT u FROM User u WHERE u.userid = :userid"),
-	@NamedQuery(name = "User.findByUsername", query = "SELECT u FROM User u WHERE u.username = :username"),
-	@NamedQuery(name = "User.findByPasswd", query = "SELECT u FROM User u WHERE u.passwd = :passwd")})
-public class User extends Time {
+	@NamedQuery(name = "Account.findAll", query = "SELECT a FROM Account a"),
+	@NamedQuery(name = "Account.findByUsername", query = "SELECT a FROM Account a WHERE a.username = :username"),})
+public class Account extends Time {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-	private Integer userid;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	private Integer accountid;
 
 	@Size(max = 64)
 	private String username;
@@ -46,19 +44,19 @@ public class User extends Time {
 	@Size(max = 256)
 	private String passwd;
 
-	public User() {
+	public Account() {
 	}
 
-	public User(final Integer userid) {
-		this.userid = userid;
+	public Account(final Integer accountid) {
+		this.accountid = accountid;
 	}
 
-	public Integer getUserid() {
-		return userid;
+	public Integer getAccountid() {
+		return accountid;
 	}
 
-	public void setUserid(final Integer userid) {
-		this.userid = userid;
+	public void setAccountid(final Integer accountid) {
+		this.accountid = accountid;
 	}
 
 	public String getUsername() {
@@ -79,21 +77,21 @@ public class User extends Time {
 
 	@Override
 	public int hashCode() {
-		return (userid != null ? userid.hashCode() : 0);
+		return (accountid != null ? accountid.hashCode() : 0);
 	}
 
 	@Override
 	public boolean equals(final Object object) {
-		if (!(object instanceof User)) {
+		if (!(object instanceof Account)) {
 			return false;
 		}
-		final User other = (User) object;
-		return (this.userid != null || other.userid == null) && (this.userid == null || this.userid.equals(other.userid));
+		final Account other = (Account) object;
+		return (this.accountid != null || other.accountid == null) && (this.accountid == null || this.accountid.equals(other.accountid));
 	}
 
 	@Override
 	public String toString() {
-		return "User[ userid=" + userid + " ]";
+		return "Account[ accountid=" + accountid + " ]";
 	}
 
 }

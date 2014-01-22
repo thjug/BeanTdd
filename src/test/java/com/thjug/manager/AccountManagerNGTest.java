@@ -12,8 +12,8 @@
  */
 package com.thjug.manager;
 
+import com.thjug.entity.Account;
 import com.thjug.test.factory.EJBContainerFactory;
-import javax.persistence.EntityNotFoundException;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
@@ -21,16 +21,17 @@ import org.testng.annotations.Test;
  *
  * @author nuboat
  */
-public class UserManagerNGTest {
+public class AccountManagerNGTest {
 
-	@Test(expectedExceptions = EntityNotFoundException.class)
+	@Test
 	public void testFindByIdCaseObjectNotfound() throws Exception {
 		final Integer id = 1;
-		final UserManager instance =  EJBContainerFactory.getUserManager();
+		final AccountManager instance =  EJBContainerFactory.getAccountManager();
 
-		instance.findById(id);
+		final Account account = instance.findById(id);
+		assertNull(account);
 
-		fail("The test case shoud throw EntityNotFoundException");
+		//fail("The test case shoud throw EntityNotFoundException");
 	}
 
 //	@Test

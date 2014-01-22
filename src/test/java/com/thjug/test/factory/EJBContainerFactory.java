@@ -18,7 +18,7 @@ import javax.ejb.embeddable.EJBContainer;
 import javax.naming.NamingException;
 
 import com.thjug.facade.HelloBean;
-import com.thjug.manager.UserManager;
+import com.thjug.manager.AccountManager;
 import javax.naming.Context;
 /**
  *
@@ -53,8 +53,8 @@ public class EJBContainerFactory {
 		return (HelloBean) getContext().lookup("java:global/classes/HelloBean");
 	}
 	
-	public static UserManager getUserManager() throws NamingException {
-		return (UserManager) getContext().lookup("java:global/classes/UserManager");
+	public static AccountManager getAccountManager() throws NamingException {
+		return (AccountManager) getContext().lookup("java:global/classes/AccountManager");
 	}
 
 	private EJBContainerFactory() {

@@ -12,6 +12,7 @@
  */
 package com.thjug.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
@@ -22,7 +23,8 @@ import javax.persistence.TemporalType;
  * @author @nuboat
  */
 @MappedSuperclass
-public abstract class Time implements Timeable {
+@SuppressWarnings("serial")
+public abstract class Time implements Timeable, Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date created;
